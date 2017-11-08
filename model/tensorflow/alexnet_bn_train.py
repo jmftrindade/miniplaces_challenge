@@ -5,7 +5,7 @@ from tensorflow.contrib.layers.python.layers import batch_norm
 from DataLoader import *
 
 # Dataset Parameters
-batch_size = 256
+batch_size = 200  # 256
 load_size = 256
 fine_size = 224
 c = 3
@@ -14,11 +14,13 @@ data_mean = np.asarray([0.45834960097,0.44674252445,0.41352266842])
 # Training Parameters
 learning_rate = 0.001
 dropout = 0.5 # Dropout, probability to keep units
-training_iters = 50000
+training_iters = 50000  # 50
 step_display = 50
-step_save = 10000
-path_save = 'alexnet_bn'
-start_from = ''
+step_save = 500  # 25
+model_path = '.'
+model = model_path + '/alexnet_bn'
+#start_from = model_path
+start_from = ''  # use this if you want to train it again from scratch
 
 def batch_norm_layer(x, train_phase, scope_bn):
     return batch_norm(x, decay=0.9, center=True, scale=True,
@@ -116,6 +118,18 @@ loader_val = DataLoaderDisk(**opt_data_val)
 #loader_train = DataLoaderH5(**opt_data_train)
 #loader_val = DataLoaderH5(**opt_data_val)
 
+# jfon: load test images
+opt_data_test = {
+    #'data_h5': 'miniplaces_256_train.h5',
+    'data_root': '../../data/images/',   # MODIFY PATH ACCORDINGLY
+    'data_list': '../../data/test.txt', # MODIFY PATH ACCORDINGLY
+    'load_size': load_size,
+    'fine_size': fine_size,
+    'data_mean': data_mean,
+    'randomize': True
+    }
+loader_test = DataLoaderDisk(**opt_data_test)
+
 # tf Graph input
 x = tf.placeholder(tf.float32, [None, fine_size, fine_size, c])
 y = tf.placeholder(tf.int64, None)
@@ -123,6 +137,8 @@ keep_dropout = tf.placeholder(tf.float32)
 train_phase = tf.placeholder(tf.bool)
 
 # Construct model
+global_step = tf.Variable(0, trainable=False, name='global_step')
+tf.add_to_collection('global_step', global_step)
 logits = alexnet(x, keep_dropout, train_phase)
 
 # Define loss and optimizer
@@ -137,6 +153,7 @@ accuracy5 = tf.reduce_mean(tf.cast(tf.nn.in_top_k(logits, y, 5), tf.float32))
 init = tf.global_variables_initializer()
 
 # define saver
+# jfon: need to be defined after declaring all variables
 saver = tf.train.Saver()
 
 # define summary writer
@@ -144,18 +161,32 @@ saver = tf.train.Saver()
 
 # Launch the graph
 with tf.Session() as sess:
+    # jfon: without this, the global vars are not initialized
+    tf.global_variables_initializer().run()
+
     # Initialization
-    if len(start_from)>1:
-        saver.restore(sess, start_from)
+    if len(start_from)>0:
+        ckpt = tf.train.get_checkpoint_state(model_path)
+        if ckpt and ckpt.model_checkpoint_path:
+            saver.restore(sess, ckpt.model_checkpoint_path)
+            print('Recovered variables:')
+            for v in tf.global_variables():
+                print(v)
+            step = global_step.eval()
+            print('Model restored at step %d' % step)
+        else:
+            print('Could not restore model, aborting!')
+            sys.exit(1)
+
     else:
         sess.run(init)
-    
-    step = 0
+        step = 0
+        print('training new model')
 
     while step < training_iters:
         # Load a batch of training data
         images_batch, labels_batch = loader_train.next_batch(batch_size)
-        
+
         if step % step_display == 0:
             print('[%s]:' %(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
 
@@ -173,19 +204,21 @@ with tf.Session() as sess:
                   "{:.6f}".format(l) + ", Accuracy Top1 = " + \
                   "{:.4f}".format(acc1) + ", Top5 = " + \
                   "{:.4f}".format(acc5))
-        
+
         # Run optimization op (backprop)
         sess.run(train_optimizer, feed_dict={x: images_batch, y: labels_batch, keep_dropout: dropout, train_phase: True})
-        
         step += 1
-        
+
         # Save model
         if step % step_save == 0:
-            saver.save(sess, path_save, global_step=step)
+            print('Saving model with step = %d (global_step var)' % step)
+            # jfon: need this, otherwise global_step var is NOT updated
+            global_step.assign(step).eval()
+            # jfon: let's not keep a bunch of ckpt lying around
+            saver.save(sess, model, global_step=global_step, max_to_keep=2)
             print("Model saved at Iter %d !" %(step))
-        
-    print("Optimization Finished!")
 
+    print('Training Finished!')
 
     # Evaluate on the whole validation set
     print('Evaluation on the whole validation set...')
@@ -205,3 +238,32 @@ with tf.Session() as sess:
     acc1_total /= num_batch
     acc5_total /= num_batch
     print('Evaluation Finished! Accuracy Top1 = ' + "{:.4f}".format(acc1_total) + ", Top5 = " + "{:.4f}".format(acc5_total))
+
+    # jfon: run inference, and save top 5 predictions per image
+    print('Starting inference...')
+    with open('results.txt', 'w') as f:
+        num_batch = loader_test.size()//batch_size
+        loader_test.reset()
+
+        num_img = 1
+        for i in range(num_batch):
+            images_batch, _ = loader_test.next_batch(batch_size)
+            top_5 = tf.nn.top_k(logits, k=5)
+            results = sess.run([top_5], feed_dict={x: images_batch, keep_dropout: 1., train_phase: False})
+
+            for img_idx in range(len(results[0][1])):
+                img_suffix = str(num_img)
+                img_suffix = img_suffix.zfill(8)
+                img_filename = 'test/' + img_suffix + '.jpg'
+                num_img += 1
+
+                # 5 preds per image
+                preds = ''
+                for pred in results[0][1][img_idx]:
+                    preds += str(pred) + ' '
+                preds = preds[:-1]
+
+                line = img_filename + ' ' + preds
+                f.write(line + '\n')
+
+    print("Done.")
