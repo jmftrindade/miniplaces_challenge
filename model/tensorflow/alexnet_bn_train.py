@@ -16,7 +16,7 @@ learning_rate = 0.001
 dropout = 0.5 # Dropout, probability to keep units
 training_iters = 50000  # 50
 step_display = 50
-step_save = 500  # 25
+step_save = 1000  # 25
 model_path = '.'
 model = model_path + '/alexnet_bn'
 #start_from = model_path
@@ -154,7 +154,7 @@ init = tf.global_variables_initializer()
 
 # define saver
 # jfon: need to be defined after declaring all variables
-saver = tf.train.Saver()
+saver = tf.train.Saver(max_to_keep=2)
 
 # define summary writer
 #writer = tf.train.SummaryWriter('.', graph=tf.get_default_graph())
@@ -215,7 +215,7 @@ with tf.Session() as sess:
             # jfon: need this, otherwise global_step var is NOT updated
             global_step.assign(step).eval()
             # jfon: let's not keep a bunch of ckpt lying around
-            saver.save(sess, model, global_step=global_step, max_to_keep=2)
+            saver.save(sess, model, global_step=global_step)
             print("Model saved at Iter %d !" %(step))
 
     print('Training Finished!')
