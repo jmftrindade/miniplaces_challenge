@@ -8,7 +8,7 @@ import sys
 # globals
 WEIGHTS = {
     'resnet': 1.0,
-    'inception': 0.5
+    'inception': 1.0
 }
 
 
@@ -46,11 +46,23 @@ def process_predictions_file(filename, votes):
     return votes
 
 
-def count_votes(input_dir):
+def count_votes(input_dir, labels_input_filename):
     votes = {}
+
+    correct_answers = {}
+    should_compute_acc = False
+    if labels_input_filename is not None:
+        should_compute_acc = True
+        with open(labels_input_filename) as labels:
+            for line in labels:
+                line = line.rstrip().split()
+                correct_answers[line[0]] = int(line[1])
 
     for filename in glob.glob(input_dir + '/*.txt'):
         votes = process_predictions_file(filename, votes)
+
+    top_1_acc = 0
+    top_5_acc = 0
 
     # Iterate over weighted majority votes, printing top 5 results to file.
     for image in sorted(votes.iterkeys()):
@@ -59,10 +71,24 @@ def count_votes(input_dir):
 #        print '%s %s' % (image, preds)
 
         # Output top 5 predictions.
-        top_preds = ''
+        top_preds = []
         for i in xrange(5):
-            top_preds += str(preds[i][0]) + ' '
-        print '%s %s' % (image, top_preds)
+            top_preds.append(int(preds[i][0]))
+
+        # Compute accuracy if class labels available.
+        if should_compute_acc:
+            print 'correct_answers[%s] = %s, top_preds = %s' % (
+                image, correct_answers[image], top_preds)
+            if correct_answers[image] == top_preds[0]:
+                top_1_acc += 1
+            if correct_answers[image] in top_preds[:5]:
+                top_5_acc += 1
+
+        print '%s %s' % (image, ' '.join(map(str, top_preds)))
+
+    if should_compute_acc:
+        print 'top-1 acc: %s' % (float(top_1_acc) / len(votes))
+        print 'top-5 acc: %s' % (float(top_5_acc) / len(votes))
 
 
 if __name__ == "__main__":
@@ -71,6 +97,9 @@ if __name__ == "__main__":
     parser.add_argument('-i', '--input_dir',
                         help='Relative path of directory with input files.',
                         required=True)
+    parser.add_argument('-lf', '--labels_input_filename',
+                        help='Relative path of input file with class labels.',
+                        required=False)
 
     args = parser.parse_args()
-    count_votes(args.input_dir)
+    count_votes(args.input_dir, args.labels_input_filename)
