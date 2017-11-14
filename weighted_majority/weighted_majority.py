@@ -1,6 +1,7 @@
 import argparse
 import glob
 import itertools
+import math
 import os
 import sys
 
@@ -37,8 +38,10 @@ def process_predictions_file(filename, votes):
                 if prediction not in votes[image]:
                     votes[image][prediction] = 0.0
 
-                # Take into account prediction rank.
-                votes[image][prediction] += WEIGHTS[net] * (num_preds - i)
+                # Prediction rank with linear decay.
+                #votes[image][prediction] += WEIGHTS[net] * (num_preds - i)
+                # Prediction rank with exponential decay.
+                votes[image][prediction] += WEIGHTS[net] * math.exp(-i / 5)
 
     return votes
 
@@ -53,6 +56,7 @@ def count_votes(input_dir):
     for image in sorted(votes.iterkeys()):
         image_votes = votes[image]
         preds = sorted(image_votes.items(), key=lambda x: (-x[1], x[0]))
+#        print '%s %s' % (image, preds)
 
         # Output top 5 predictions.
         top_preds = ''
