@@ -77,8 +77,6 @@ def count_votes(input_dir, labels_input_filename):
 
         # Compute accuracy if class labels available.
         if should_compute_acc:
-            print 'correct_answers[%s] = %s, top_preds = %s' % (
-                image, correct_answers[image], top_preds)
             if correct_answers[image] == top_preds[0]:
                 top_1_acc += 1
             if correct_answers[image] in top_preds[:5]:
