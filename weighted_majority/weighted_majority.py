@@ -12,43 +12,78 @@ WEIGHTS = {
 }
 
 
-def process_predictions_file(filename, votes):
-    # network name is hardcoded in the filename:
-    net = os.path.splitext(os.path.basename(filename))[0].split('_')[0]
+def get_network_name(filename):
+    # XXX: Network name assumed to be encoded as net_file.txt
+    basename = os.path.splitext(os.path.basename(filename))[0]
+    return basename.split('_')[0]
+
+
+def process_scores_file(filename, class_scores):
+    net = get_network_name(filename)
+
+    with open(filename) as f:
+        for line in f:
+            # Syntax is: <class> <#correct_guesses> <#top_1_score> ...
+            tokens = line.rstrip().split(' ')
+            if len(tokens) < 2:
+                print 'Exiting: not enough class scores in "%s"' % (filename)
+                sys.exit(-1)
+
+            class_name = int(tokens[0])
+            top_1_score = float(tokens[2])
+
+            if net not in class_scores:
+                class_scores[net] = {}
+            if class_name not in class_scores[net]:
+                class_scores[net][class_name] = top_1_score
+
+    print 'scores: %s' % class_scores
+
+    return class_scores
+
+
+def process_predictions_file(predictions_filename, votes, class_scores=None):
+    net = get_network_name(predictions_filename)
 
     if net not in WEIGHTS:
         sys.exit('Exiting: no weight configured for "%s" network.' % net)
 
-    with open(filename) as f:
+    with open(predictions_filename) as f:
         for line in f:
             tokens = line.rstrip().split(' ')
 
             # Need at least the image and 1 prediction.
             if len(tokens) <= 1:
-                print 'Exiting: not enough predictions in "%s".' % filename
+                print 'Exiting: not enough predictions in "%s".' % (
+                    predictions_filename)
                 sys.exit(-1)
 
             image = tokens[0]
             num_preds = len(tokens) - 1  # first entry is the test image
             for i in xrange(1, num_preds + 1):
-                prediction = tokens[i]
+                prediction = int(tokens[i])
 
                 if image not in votes:
                     votes[image] = {}
                 if prediction not in votes[image]:
                     votes[image][prediction] = 0.0
 
-                # Prediction rank with linear decay.
-                #votes[image][prediction] += WEIGHTS[net] * (num_preds - i)
-                # Prediction rank with exponential decay.
-                votes[image][prediction] += WEIGHTS[net] * math.exp(-i / 5)
+                # Linear decay.
+                #decay_factor = num_preds - i
+                # Exponential decay.
+                decay_factor = math.exp(-i / 5)
+
+                class_score = 1.0
+                if class_scores is not None and len(class_scores) > 0:
+                    class_score = class_scores[net][prediction]
+
+                votes[image][prediction] += WEIGHTS[net] * \
+                    class_score * decay_factor
 
     return votes
 
 
-def count_votes(input_dir, labels_input_filename):
-    votes = {}
-
+def count_votes(input_dir, labels_input_filename, use_class_scores):
     correct_answers = {}
     should_compute_acc = False
     if labels_input_filename is not None:
@@ -58,8 +93,17 @@ def count_votes(input_dir, labels_input_filename):
                 line = line.rstrip().split()
                 correct_answers[line[0]] = int(line[1])
 
-    for filename in glob.glob(input_dir + '/*.txt'):
-        votes = process_predictions_file(filename, votes)
+    # Retrieve class scores if available.
+    class_scores = {}
+    if use_class_scores:
+        for scores_filename in glob.glob(input_dir + '/*_scores.txt'):
+            class_scores = process_scores_file(scores_filename, class_scores)
+
+    # XXX: Filename actually matters, yuck >.<
+    votes = {}
+    for predictions_filename in glob.glob(input_dir + '/*_predictions.txt'):
+        votes = process_predictions_file(
+            predictions_filename, votes, class_scores)
 
     top_1_acc = 0
     top_5_acc = 0
@@ -98,6 +142,13 @@ if __name__ == "__main__":
     parser.add_argument('-lf', '--labels_input_filename',
                         help='Relative path of input file with class labels.',
                         required=False)
+    parser.add_argument('--use-class-scores',
+                        dest='use_class_scores',
+                        action='store_true')
+    parser.add_argument('--no-use-class-scores',
+                        dest='use_class_scores',
+                        action='store_false')
+    parser.set_defaults(use_class_scores=False)
 
     args = parser.parse_args()
-    count_votes(args.input_dir, args.labels_input_filename)
+    count_votes(**vars(args))
