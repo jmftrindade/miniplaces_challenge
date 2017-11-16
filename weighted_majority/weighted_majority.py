@@ -23,26 +23,28 @@ def process_scores_file(filename, class_scores):
 
     with open(filename) as f:
         for line in f:
-            # Syntax is: <class> <#correct_guesses> <#top_1_score> ...
+            # <class> <#t1_guesses> <t1_score> <#t5_guesses> <t5_score>
             tokens = line.rstrip().split(' ')
-            if len(tokens) < 2:
+            if len(tokens) < 4:
                 print 'Exiting: not enough class scores in "%s"' % (filename)
                 sys.exit(-1)
 
             class_name = int(tokens[0])
-            top_1_score = float(tokens[2])
+            top1_score = float(tokens[2])
+            top5_score = float(tokens[4])
 
             if net not in class_scores:
                 class_scores[net] = {}
             if class_name not in class_scores[net]:
-                class_scores[net][class_name] = top_1_score
-
-    print 'scores: %s' % class_scores
+                class_scores[net][class_name] = {}
+                class_scores[net][class_name]['top1'] = top1_score
+                class_scores[net][class_name]['top5'] = top5_score
 
     return class_scores
 
 
-def process_predictions_file(predictions_filename, votes, class_scores=None):
+def process_predictions_file(predictions_filename, votes, class_scores=None,
+                             use_top1_class_scores=None, use_top5_class_scores=None):
     net = get_network_name(predictions_filename)
 
     if net not in WEIGHTS:
@@ -75,7 +77,10 @@ def process_predictions_file(predictions_filename, votes, class_scores=None):
 
                 class_score = 1.0
                 if class_scores is not None and len(class_scores) > 0:
-                    class_score = class_scores[net][prediction]
+                    if use_top1_class_scores:
+                        class_score *= class_scores[net][prediction]['top1']
+                    if use_top5_class_scores:
+                        class_score *= class_scores[net][prediction]['top5']
 
                 votes[image][prediction] += WEIGHTS[net] * \
                     class_score * decay_factor
@@ -83,7 +88,8 @@ def process_predictions_file(predictions_filename, votes, class_scores=None):
     return votes
 
 
-def count_votes(input_dir, labels_input_filename, use_class_scores):
+def compute_majority_predictions(input_dir, labels_input_filename,
+                                 use_top1_class_scores, use_top5_class_scores):
     correct_answers = {}
     should_compute_acc = False
     if labels_input_filename is not None:
@@ -95,15 +101,18 @@ def count_votes(input_dir, labels_input_filename, use_class_scores):
 
     # Retrieve class scores if available.
     class_scores = {}
-    if use_class_scores:
+    if use_top1_class_scores or use_top5_class_scores:
         for scores_filename in glob.glob(input_dir + '/*_scores.txt'):
             class_scores = process_scores_file(scores_filename, class_scores)
+        if len(class_scores) == 0:
+            print 'Exiting: no *_scores.txt files found.'
+            sys.exit(-1)
 
     # XXX: Filename actually matters, yuck >.<
     votes = {}
     for predictions_filename in glob.glob(input_dir + '/*_predictions.txt'):
-        votes = process_predictions_file(
-            predictions_filename, votes, class_scores)
+        votes = process_predictions_file(predictions_filename, votes,
+                                         class_scores, use_top1_class_scores, use_top5_class_scores)
 
     top_1_acc = 0
     top_5_acc = 0
@@ -142,13 +151,14 @@ if __name__ == "__main__":
     parser.add_argument('-lf', '--labels_input_filename',
                         help='Relative path of input file with class labels.',
                         required=False)
-    parser.add_argument('--use-class-scores',
-                        dest='use_class_scores',
+    parser.add_argument('--use-top1-class-scores',
+                        dest='use_top1_class_scores',
                         action='store_true')
-    parser.add_argument('--no-use-class-scores',
-                        dest='use_class_scores',
-                        action='store_false')
-    parser.set_defaults(use_class_scores=False)
+    parser.set_defaults(use_top1_class_scores=False)
+    parser.add_argument('--use-top5-class-scores',
+                        dest='use_top5_class_scores',
+                        action='store_true')
+    parser.set_defaults(use_top5_class_scores=False)
 
     args = parser.parse_args()
-    count_votes(**vars(args))
+    compute_majority_predictions(**vars(args))
