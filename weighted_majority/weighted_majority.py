@@ -43,8 +43,37 @@ def process_scores_file(filename, class_scores):
     return class_scores
 
 
+def process_class_accuracies_file(filename, class_accuracies):
+    net = get_network_name(filename)
+
+    with open(filename) as f:
+        for line in f:
+            # <class> <t1_acc> <t5_acc>
+            tokens = line.rstrip().split(' ')
+            if len(tokens) < 3:
+                print 'Exiting: not enough class accuracies in "%s"' % (filename)
+                sys.exit(-1)
+
+            class_name = int(tokens[0])
+            top1_acc = float(tokens[1])
+            top5_acc = float(tokens[2])
+
+            if net not in class_accuracies:
+                class_accuracies[net] = {}
+            if class_name not in class_accuracies[net]:
+                class_accuracies[net][class_name] = {}
+                class_accuracies[net][class_name]['top1'] = top1_acc
+                class_accuracies[net][class_name]['top5'] = top5_acc
+
+    return class_accuracies
+
+
 def process_predictions_file(predictions_filename, votes, class_scores=None,
-                             use_top1_class_scores=None, use_top5_class_scores=None):
+                             use_top1_class_scores=None,
+                             use_top5_class_scores=None,
+                             class_accuracies=None,
+                             use_top1_class_accuracies=None,
+                             use_top5_class_accuracies=None):
     net = get_network_name(predictions_filename)
 
     if net not in WEIGHTS:
@@ -82,14 +111,22 @@ def process_predictions_file(predictions_filename, votes, class_scores=None,
                     if use_top5_class_scores:
                         class_score *= class_scores[net][prediction]['top5']
 
+                class_accuracy = 1.0
+                if class_accuracies is not None and len(class_accuracies) > 0:
+                    if use_top1_class_accuracies:
+                        class_accuracy *= class_accuracies[net][prediction]['top1']
+                    if use_top5_class_accuracies:
+                        class_accuracy *= class_accuracies[net][prediction]['top5']
+
                 votes[image][prediction] += round(float(WEIGHTS[net] *
-                                                        class_score * decay_factor), 4)
+                    class_score * class_accuracy * decay_factor), 4)
 
     return votes
 
 
 def compute_majority_predictions(input_dir, labels_input_filename,
-                                 use_top1_class_scores, use_top5_class_scores):
+                                 use_top1_class_scores, use_top5_class_scores, use_top1_class_accuracies,
+                                 use_top5_class_accuracies):
     correct_answers = {}
     should_compute_acc = False
     if labels_input_filename is not None:
@@ -108,11 +145,26 @@ def compute_majority_predictions(input_dir, labels_input_filename,
             print 'Exiting: no *_scores.txt files found.'
             sys.exit(-1)
 
+    # Retrieve class accuracies if available.
+    class_accuracies = {}
+    if use_top1_class_accuracies or use_top5_class_accuracies:
+        for accuracies_filename in glob.glob(input_dir + '/*_class_accuracies.txt'):
+            class_accuracies = process_class_accuracies_file(accuracies_filename,
+                                                             class_accuracies)
+        if len(class_accuracies) == 0:
+            print 'Exiting: no *_class_accuracies.txt files found.'
+            sys.exit(-1)
+
     # XXX: Filename actually matters, yuck >.<
     votes = {}
     for predictions_filename in glob.glob(input_dir + '/*_predictions.txt'):
         votes = process_predictions_file(predictions_filename, votes,
-                                         class_scores, use_top1_class_scores, use_top5_class_scores)
+                                         class_scores,
+                                         use_top1_class_scores,
+                                         use_top5_class_scores,
+                                         class_accuracies,
+                                         use_top1_class_accuracies,
+                                         use_top5_class_accuracies)
 
     top_1_acc = 0
     top_5_acc = 0
@@ -158,6 +210,14 @@ if __name__ == "__main__":
                         dest='use_top5_class_scores',
                         action='store_true')
     parser.set_defaults(use_top5_class_scores=False)
+    parser.add_argument('--use-top1-class-accuracies',
+                        dest='use_top1_class_accuracies',
+                        action='store_true')
+    parser.set_defaults(use_top1_class_accuracies=False)
+    parser.add_argument('--use-top5-class-accuracies',
+                        dest='use_top5_class_accuracies',
+                        action='store_true')
+    parser.set_defaults(use_top5_class_accuracies=False)
 
     args = parser.parse_args()
     compute_majority_predictions(**vars(args))
