@@ -8,7 +8,7 @@ import sys
 # globals
 WEIGHTS = {
     'resnet': 1.0,
-    'inception': 1.0
+    'inception': 0.0
 }
 
 
@@ -73,7 +73,7 @@ def process_predictions_file(predictions_filename, votes, class_scores=None,
                 # Linear decay.
                 #decay_factor = num_preds - i
                 # Exponential decay.
-                decay_factor = math.exp(-i / 5)
+                decay_factor = math.exp(float(-i) / float(5))
 
                 class_score = 1.0
                 if class_scores is not None and len(class_scores) > 0:
@@ -82,8 +82,8 @@ def process_predictions_file(predictions_filename, votes, class_scores=None,
                     if use_top5_class_scores:
                         class_score *= class_scores[net][prediction]['top5']
 
-                votes[image][prediction] += WEIGHTS[net] * \
-                    class_score * decay_factor
+                votes[image][prediction] += round(float(WEIGHTS[net] *
+                                                        class_score * decay_factor), 4)
 
     return votes
 
@@ -121,7 +121,6 @@ def compute_majority_predictions(input_dir, labels_input_filename,
     for image in sorted(votes.iterkeys()):
         image_votes = votes[image]
         preds = sorted(image_votes.items(), key=lambda x: (-x[1], x[0]))
-#        print '%s %s' % (image, preds)
 
         # Output top 5 predictions.
         top_preds = []
