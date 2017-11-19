@@ -8,7 +8,7 @@ import sys
 # globals
 WEIGHTS = {
     'resnet': 1.0,
-    'inception': 0.0
+    'inception': 1.0
 }
 
 
@@ -114,12 +114,14 @@ def process_predictions_file(predictions_filename, votes, class_scores=None,
                 class_accuracy = 1.0
                 if class_accuracies is not None and len(class_accuracies) > 0:
                     if use_top1_class_accuracies:
-                        class_accuracy *= class_accuracies[net][prediction]['top1']
+                        class_accuracy *= class_accuracies[
+                            net][prediction]['top1']
                     if use_top5_class_accuracies:
-                        class_accuracy *= class_accuracies[net][prediction]['top5']
+                        class_accuracy *= class_accuracies[
+                            net][prediction]['top5']
 
                 votes[image][prediction] += round(float(WEIGHTS[net] *
-                    class_score * class_accuracy * decay_factor), 4)
+                                                        class_score * class_accuracy * decay_factor), 4)
 
     return votes
 
