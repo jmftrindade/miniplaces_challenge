@@ -71,7 +71,8 @@ def process_predictions_file(model_weights,
                              use_top5_class_scores=None,
                              class_accuracies=None,
                              use_top1_class_accuracies=None,
-                             use_top5_class_accuracies=None):
+                             use_top5_class_accuracies=None,
+                             decay_type=None):
     net = get_network_name(predictions_filename)
 
     if net not in model_weights:
@@ -97,10 +98,17 @@ def process_predictions_file(model_weights,
                 if prediction not in votes[image]:
                     votes[image][prediction] = 0.0
 
-                # Linear decay.
-                #decay_factor = num_preds - i
-                # Exponential decay.
-                decay_factor = math.exp(float(-i) / float(5))
+                # Default decay is exponential.
+                decay_factor = 1.0
+                # Only first 10 predictions count.
+                if decay_type == 'constant':
+                    decay_factor = 1.0 if i <= 10 else 0.0
+                # Linear decay for prediction ranks.
+                elif decay_type == 'linear':
+                    decay_factor = num_preds - i
+                # Exponential decay for prediction ranks (default setting).
+                else:
+                    decay_factor = math.exp(float(-i) / float(5))
 
                 class_score = 1.0
                 if class_scores is not None and len(class_scores) > 0:
@@ -126,19 +134,43 @@ def process_predictions_file(model_weights,
     return votes
 
 
-def grid_search(**kwargs):
+def main(**kwargs):
     # XXX: Need to be kept in sync with the input files available.
     models = ['resnet', 'inception']
-    weights = [0.0, 0.25, 0.5, 0.75, 1.0]
+    weights = [1.0]
+    output_predictions = False
 
+    # Only output predictions if we're not dealing with validation data set.
+    if kwargs.get('labels_input_filename') is None:
+        output_predictions = True
+
+    if kwargs.get('grid_search'):
+        weights = [0.0, 0.25, 0.5, 0.75, 1.0]
+
+    kw = {k: v for k, v in kwargs.items() if k is not 'grid_search'}
+    grid_search(models, weights, output_predictions, **kw)
+
+
+def has_equal_values(d):
+    s = set(k for k, v in d.items() if d.values().count(v) == len(d.items()))
+    return len(d) == len(s)
+
+
+def grid_search(models, weights, output_predictions, **kwargs):
     products = []
     for m in models:
         products.append(list(itertools.product([m], weights)))
 
     for i in itertools.product(*products):
         model_weights = dict(i)
+
+        # Skip configurations with equal weights, except when weight is 1.0.
+        if (model_weights[model_weights.keys()[0]] != 1.0
+                and has_equal_values(model_weights)):
+            continue
+
         compute_majority_predictions(model_weights,
-                                     should_print_predictions=False,
+                                     output_predictions=output_predictions,
                                      **kwargs)
 
 
@@ -149,7 +181,8 @@ def compute_majority_predictions(model_weights,
                                  use_top5_class_scores,
                                  use_top1_class_accuracies,
                                  use_top5_class_accuracies,
-                                 should_print_predictions):
+                                 decay_type,
+                                 output_predictions):
     config = dict(locals().items())
     pprint(config)
 
@@ -192,7 +225,8 @@ def compute_majority_predictions(model_weights,
                                          use_top5_class_scores,
                                          class_accuracies,
                                          use_top1_class_accuracies,
-                                         use_top5_class_accuracies)
+                                         use_top5_class_accuracies,
+                                         decay_type)
 
     top_1_acc = 0
     top_5_acc = 0
@@ -214,7 +248,7 @@ def compute_majority_predictions(model_weights,
             if correct_answers[image] in top_preds[:5]:
                 top_5_acc += 1
 
-        if should_print_predictions:
+        if output_predictions:
             print '%s %s' % (image, ' '.join(map(str, top_preds)))
 
     if should_compute_acc:
@@ -249,7 +283,15 @@ if __name__ == "__main__":
                         dest='use_top5_class_accuracies',
                         action='store_true')
     parser.set_defaults(use_top5_class_accuracies=False)
+    parser.add_argument('--decay-type',
+                        choices=['constant', 'linear', 'exponential'],
+                        dest='decay_type',
+                        action='store',
+                        help='Type of decay function for prediction ranks.')
+    parser.add_argument('--no-grid-search',
+                        dest='grid_search',
+                        action='store_false')
+    parser.set_defaults(grid_search=True)
 
     args = parser.parse_args()
-
-    grid_search(**vars(args))
+    main(**vars(args))
