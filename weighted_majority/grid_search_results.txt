@@ -1,20 +1,9 @@
-Mon Nov 20 11:19:17 EST 2017
-{'input_dir': 'validation/',
+Mon Nov 20 15:25:34 EST 2017
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.01
-top-5 acc: 0.05
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.0},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': False,
@@ -23,22 +12,11 @@ top-1 acc: 0.4422
 top-5 acc: 0.7541
 done.
 
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4422
-top-5 acc: 0.7541
-done.
-
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
  'model_weights': {'inception': 1.0, 'resnet': 0.0},
- 'should_print_predictions': False,
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': False,
@@ -47,10 +25,11 @@ top-1 acc: 0.4422
 top-5 acc: 0.7541
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.25},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': False,
@@ -59,94 +38,24 @@ top-1 acc: 0.4581
 top-5 acc: 0.7717
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.25},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': False,
  'use_top5_class_scores': False}
-top-1 acc: 0.5045
-top-5 acc: 0.8035
+top-1 acc: 0.495
+top-5 acc: 0.796
 done.
 
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4841
-top-5 acc: 0.7895
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4584
-top-5 acc: 0.7694
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4581
-top-5 acc: 0.7717
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4914
-top-5 acc: 0.7987
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.5045
-top-5 acc: 0.8038
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4841
-top-5 acc: 0.7895
-done.
-
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
  'model_weights': {'inception': 0.0, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': False,
@@ -155,34 +64,24 @@ top-1 acc: 0.4581
 top-5 acc: 0.7717
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': False,
  'use_top5_class_scores': False}
-top-1 acc: 0.4717
-top-5 acc: 0.7865
+top-1 acc: 0.4988
+top-5 acc: 0.8015
 done.
 
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 1.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4914
-top-5 acc: 0.7987
-done.
-
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
  'model_weights': {'inception': 1.0, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': False,
@@ -191,46 +90,193 @@ top-1 acc: 0.5044
 top-5 acc: 0.8037
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.0},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
+ 'use_top1_class_scores': False,
  'use_top5_class_accuracies': False,
  'use_top5_class_scores': False}
-top-1 acc: 0.01
-top-5 acc: 0.05
+top-1 acc: 0.0784
+top-5 acc: 0.4122
 done.
 
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4309
-top-5 acc: 0.7596
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4309
-top-5 acc: 0.7596
-done.
-
-{'input_dir': 'validation/',
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
  'model_weights': {'inception': 1.0, 'resnet': 0.0},
- 'should_print_predictions': False,
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0784
+top-5 acc: 0.4122
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0923
+top-5 acc: 0.4572
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1772
+top-5 acc: 0.7034
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0923
+top-5 acc: 0.4572
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1771
+top-5 acc: 0.7034
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1772
+top-5 acc: 0.7024
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.4422
+top-5 acc: 0.7541
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.4422
+top-5 acc: 0.7541
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.4581
+top-5 acc: 0.7717
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.4949
+top-5 acc: 0.7985
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.4581
+top-5 acc: 0.7717
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.4992
+top-5 acc: 0.8009
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.5009
+top-5 acc: 0.8004
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': True,
  'use_top5_class_accuracies': False,
@@ -239,106 +285,24 @@ top-1 acc: 0.4309
 top-5 acc: 0.7596
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.25},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': True,
  'use_top5_class_accuracies': False,
  'use_top5_class_scores': False}
-top-1 acc: 0.3224
-top-5 acc: 0.7157
+top-1 acc: 0.4309
+top-5 acc: 0.7596
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4611
-top-5 acc: 0.7867
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4717
-top-5 acc: 0.7847
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4611
-top-5 acc: 0.7755
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3224
-top-5 acc: 0.716
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4207
-top-5 acc: 0.7773
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4612
-top-5 acc: 0.7868
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4717
-top-5 acc: 0.7847
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': True,
  'use_top5_class_accuracies': False,
@@ -347,34 +311,50 @@ top-1 acc: 0.3224
 top-5 acc: 0.7161
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': True,
  'use_top5_class_accuracies': False,
  'use_top5_class_scores': False}
-top-1 acc: 0.38
-top-5 acc: 0.7585
+top-1 acc: 0.469
+top-5 acc: 0.7857
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': True,
  'use_top5_class_accuracies': False,
  'use_top5_class_scores': False}
-top-1 acc: 0.421
-top-5 acc: 0.7773
+top-1 acc: 0.3224
+top-5 acc: 0.7161
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.4452
+top-5 acc: 0.785
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
  'model_weights': {'inception': 1.0, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': True,
  'use_top5_class_accuracies': False,
@@ -383,46 +363,24 @@ top-1 acc: 0.4611
 top-5 acc: 0.7868
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.0},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': False,
  'use_top5_class_scores': True}
-top-1 acc: 0.01
-top-5 acc: 0.05
+top-1 acc: 0.3847
+top-5 acc: 0.7642
 done.
 
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.3845
-top-5 acc: 0.7645
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.3846
-top-5 acc: 0.7643
-done.
-
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
  'model_weights': {'inception': 1.0, 'resnet': 0.0},
- 'should_print_predictions': False,
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': False,
@@ -431,106 +389,37 @@ top-1 acc: 0.3846
 top-5 acc: 0.7644
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.2529
-top-5 acc: 0.6678
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.3505
-top-5 acc: 0.7613
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.395
-top-5 acc: 0.7742
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.4132
-top-5 acc: 0.7756
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.5},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': False,
  'use_top5_class_scores': True}
 top-1 acc: 0.2528
-top-5 acc: 0.6675
+top-5 acc: 0.6678
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.5},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': False,
  'use_top5_class_scores': True}
-top-1 acc: 0.3063
-top-5 acc: 0.7415
+top-1 acc: 0.3767
+top-5 acc: 0.7683
 done.
 
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.3508
-top-5 acc: 0.761
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.3951
-top-5 acc: 0.7741
-done.
-
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
  'model_weights': {'inception': 0.0, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': False,
@@ -539,34 +428,24 @@ top-1 acc: 0.2528
 top-5 acc: 0.6677
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': False,
  'use_top5_class_scores': True}
-top-1 acc: 0.2826
-top-5 acc: 0.7171
+top-1 acc: 0.3279
+top-5 acc: 0.7511
 done.
 
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 1.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.3063
-top-5 acc: 0.7416
-done.
-
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
  'model_weights': {'inception': 1.0, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': False,
@@ -575,430 +454,24 @@ top-1 acc: 0.3507
 top-5 acc: 0.7614
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.01
-top-5 acc: 0.05
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3202
-top-5 acc: 0.6737
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3202
-top-5 acc: 0.6736
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3202
-top-5 acc: 0.6737
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.2731
-top-5 acc: 0.6312
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3566
-top-5 acc: 0.7124
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3602
-top-5 acc: 0.7106
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3486
-top-5 acc: 0.7
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.2731
-top-5 acc: 0.6313
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3417
-top-5 acc: 0.7032
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3566
-top-5 acc: 0.7124
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3603
-top-5 acc: 0.7106
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 1.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.2731
-top-5 acc: 0.6313
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 1.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3117
-top-5 acc: 0.6791
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 1.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3417
-top-5 acc: 0.7031
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 1.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3566
-top-5 acc: 0.7123
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.01
-top-5 acc: 0.05
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4025
-top-5 acc: 0.7376
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4025
-top-5 acc: 0.7378
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4025
-top-5 acc: 0.7378
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3577
-top-5 acc: 0.7335
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4556
-top-5 acc: 0.7795
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4455
-top-5 acc: 0.7721
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.426
-top-5 acc: 0.7579
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3577
-top-5 acc: 0.7335
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4373
-top-5 acc: 0.7765
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4556
-top-5 acc: 0.7795
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4454
-top-5 acc: 0.7721
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 1.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3577
-top-5 acc: 0.7335
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 1.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4093
-top-5 acc: 0.7607
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 1.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4374
-top-5 acc: 0.7765
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 1.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.4556
-top-5 acc: 0.7795
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.01
-top-5 acc: 0.05
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.0},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': True,
  'use_top5_class_accuracies': False,
  'use_top5_class_scores': True}
 top-1 acc: 0.3538
-top-5 acc: 0.7328
+top-5 acc: 0.7326
 done.
 
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.3538
-top-5 acc: 0.7327
-done.
-
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
  'model_weights': {'inception': 1.0, 'resnet': 0.0},
- 'should_print_predictions': False,
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': True,
  'use_top5_class_accuracies': False,
@@ -1007,106 +480,11 @@ top-1 acc: 0.3537
 top-5 acc: 0.7323
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.221
-top-5 acc: 0.5633
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.3078
-top-5 acc: 0.7011
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.3505
-top-5 acc: 0.7191
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.3717
-top-5 acc: 0.73
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.2209
-top-5 acc: 0.5627
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.2658
-top-5 acc: 0.6711
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.308
-top-5 acc: 0.7009
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': False,
- 'use_top1_class_scores': True,
- 'use_top5_class_accuracies': False,
- 'use_top5_class_scores': True}
-top-1 acc: 0.3506
-top-5 acc: 0.7187
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': True,
  'use_top5_class_accuracies': False,
@@ -1115,34 +493,50 @@ top-1 acc: 0.2209
 top-5 acc: 0.5628
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': True,
  'use_top5_class_accuracies': False,
  'use_top5_class_scores': True}
-top-1 acc: 0.2424
-top-5 acc: 0.6403
+top-1 acc: 0.3319
+top-5 acc: 0.7131
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': True,
  'use_top5_class_accuracies': False,
  'use_top5_class_scores': True}
-top-1 acc: 0.2657
-top-5 acc: 0.6709
+top-1 acc: 0.2209
+top-5 acc: 0.5628
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.2817
+top-5 acc: 0.6843
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
  'model_weights': {'inception': 1.0, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'output_predictions': False,
  'use_top1_class_accuracies': False,
  'use_top1_class_scores': True,
  'use_top5_class_accuracies': False,
@@ -1151,46 +545,752 @@ top-1 acc: 0.3079
 top-5 acc: 0.7008
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
  'use_top5_class_scores': False}
-top-1 acc: 0.01
-top-5 acc: 0.05
+top-1 acc: 0.1258
+top-5 acc: 0.523
 done.
 
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.2881
-top-5 acc: 0.6454
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.2881
-top-5 acc: 0.6457
-done.
-
-{'input_dir': 'validation/',
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
  'model_weights': {'inception': 1.0, 'resnet': 0.0},
- 'should_print_predictions': False,
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1258
+top-5 acc: 0.523
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1064
+top-5 acc: 0.4705
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.2162
+top-5 acc: 0.6825
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1064
+top-5 acc: 0.4705
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.2159
+top-5 acc: 0.6478
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.2183
+top-5 acc: 0.683
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.1465
+top-5 acc: 0.5461
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.1465
+top-5 acc: 0.5462
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.1068
+top-5 acc: 0.4692
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.1906
+top-5 acc: 0.59
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.1068
+top-5 acc: 0.4692
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.1531
+top-5 acc: 0.5668
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.169
+top-5 acc: 0.584
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.1425
+top-5 acc: 0.5453
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.1425
+top-5 acc: 0.5453
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.1063
+top-5 acc: 0.467
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.1699
+top-5 acc: 0.5479
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.1063
+top-5 acc: 0.467
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.1398
+top-5 acc: 0.5357
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.1574
+top-5 acc: 0.5429
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1834
+top-5 acc: 0.4755
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1834
+top-5 acc: 0.4755
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1419
+top-5 acc: 0.2994
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1872
+top-5 acc: 0.4297
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1419
+top-5 acc: 0.2994
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1829
+top-5 acc: 0.3873
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1848
+top-5 acc: 0.4107
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.0675
+top-5 acc: 0.2863
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.0675
+top-5 acc: 0.2863
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.0672
+top-5 acc: 0.2102
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.0761
+top-5 acc: 0.2722
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.0672
+top-5 acc: 0.2102
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.0648
+top-5 acc: 0.2477
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.0694
+top-5 acc: 0.2545
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.0564
+top-5 acc: 0.2541
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.0564
+top-5 acc: 0.2541
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.0653
+top-5 acc: 0.1893
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.0632
+top-5 acc: 0.2373
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.0653
+top-5 acc: 0.1893
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.0577
+top-5 acc: 0.2287
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': True,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': True}
+top-1 acc: 0.0594
+top-5 acc: 0.2314
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.3202
+top-5 acc: 0.6737
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.3202
+top-5 acc: 0.6737
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.273
+top-5 acc: 0.6313
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.3618
+top-5 acc: 0.7112
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.2731
+top-5 acc: 0.6313
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.3495
+top-5 acc: 0.7102
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.3566
+top-5 acc: 0.7123
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.4025
+top-5 acc: 0.7378
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.4025
+top-5 acc: 0.7378
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.3577
+top-5 acc: 0.7335
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.4536
+top-5 acc: 0.7784
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.3577
+top-5 acc: 0.7335
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.4489
+top-5 acc: 0.7801
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.4556
+top-5 acc: 0.7795
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.2878
+top-5 acc: 0.6455
+done.
+
+{'decay_type': None,
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
  'use_top1_class_accuracies': True,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': True,
@@ -1199,106 +1299,37 @@ top-1 acc: 0.2881
 top-5 acc: 0.6456
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.2542
-top-5 acc: 0.6019
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3312
-top-5 acc: 0.6902
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3365
-top-5 acc: 0.6866
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.25},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3235
-top-5 acc: 0.6744
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.0, 'resnet': 0.5},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
  'use_top1_class_accuracies': True,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': True,
  'use_top5_class_scores': False}
 top-1 acc: 0.254
-top-5 acc: 0.6017
+top-5 acc: 0.6019
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 0.5},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
  'use_top1_class_accuracies': True,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': True,
  'use_top5_class_scores': False}
-top-1 acc: 0.3095
-top-5 acc: 0.6771
+top-1 acc: 0.3362
+top-5 acc: 0.6887
 done.
 
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.331
-top-5 acc: 0.6903
-done.
-
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 1.0, 'resnet': 0.5},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3365
-top-5 acc: 0.6866
-done.
-
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
  'model_weights': {'inception': 0.0, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'output_predictions': False,
  'use_top1_class_accuracies': True,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': True,
@@ -1307,39 +1338,575 @@ top-1 acc: 0.254
 top-5 acc: 0.6019
 done.
 
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.25, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
  'use_top1_class_accuracies': True,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': True,
  'use_top5_class_scores': False}
-top-1 acc: 0.2867
-top-5 acc: 0.6548
+top-1 acc: 0.3183
+top-5 acc: 0.685
 done.
 
-{'input_dir': 'validation/',
- 'labels_input_filename': '../data/val.txt',
- 'model_weights': {'inception': 0.5, 'resnet': 1.0},
- 'should_print_predictions': False,
- 'use_top1_class_accuracies': True,
- 'use_top1_class_scores': False,
- 'use_top5_class_accuracies': True,
- 'use_top5_class_scores': False}
-top-1 acc: 0.3095
-top-5 acc: 0.6771
-done.
-
-{'input_dir': 'validation/',
+{'decay_type': None,
+ 'input_dir': 'validation/',
  'labels_input_filename': '../data/val.txt',
  'model_weights': {'inception': 1.0, 'resnet': 1.0},
- 'should_print_predictions': False,
+ 'output_predictions': False,
  'use_top1_class_accuracies': True,
  'use_top1_class_scores': False,
  'use_top5_class_accuracies': True,
  'use_top5_class_scores': False}
 top-1 acc: 0.3311
 top-5 acc: 0.6903
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0835
+top-5 acc: 0.4502
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0835
+top-5 acc: 0.4502
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1097
+top-5 acc: 0.4615
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1777
+top-5 acc: 0.5607
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1097
+top-5 acc: 0.4615
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1742
+top-5 acc: 0.5503
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.178
+top-5 acc: 0.5608
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0936
+top-5 acc: 0.4402
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0936
+top-5 acc: 0.4402
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1042
+top-5 acc: 0.446
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1886
+top-5 acc: 0.6771
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1042
+top-5 acc: 0.446
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1868
+top-5 acc: 0.6722
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1902
+top-5 acc: 0.6839
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0848
+top-5 acc: 0.4496
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0848
+top-5 acc: 0.4496
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.108
+top-5 acc: 0.4595
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1666
+top-5 acc: 0.5253
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.108
+top-5 acc: 0.4595
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1551
+top-5 acc: 0.519
+done.
+
+{'decay_type': 'constant',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1648
+top-5 acc: 0.5284
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0649
+top-5 acc: 0.2832
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0649
+top-5 acc: 0.2832
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0986
+top-5 acc: 0.2426
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0903
+top-5 acc: 0.2928
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0986
+top-5 acc: 0.2426
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0977
+top-5 acc: 0.2778
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0935
+top-5 acc: 0.2865
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1472
+top-5 acc: 0.4266
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1472
+top-5 acc: 0.4266
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1726
+top-5 acc: 0.4044
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1833
+top-5 acc: 0.5023
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1726
+top-5 acc: 0.4044
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1878
+top-5 acc: 0.4835
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.1852
+top-5 acc: 0.4988
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0532
+top-5 acc: 0.2586
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0532
+top-5 acc: 0.2586
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0913
+top-5 acc: 0.2253
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 0.7},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0759
+top-5 acc: 0.2599
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0913
+top-5 acc: 0.2253
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 0.7, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0874
+top-5 acc: 0.2412
+done.
+
+{'decay_type': 'linear',
+ 'input_dir': 'validation/',
+ 'labels_input_filename': '../data/val.txt',
+ 'model_weights': {'inception': 1.0, 'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': True,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': True,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.0825
+top-5 acc: 0.253
 done.
 

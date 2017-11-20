@@ -164,10 +164,9 @@ def grid_search(models, weights, output_predictions, **kwargs):
     for i in itertools.product(*products):
         model_weights = dict(i)
 
-        # Skip configurations with equal weights, except when a weight is 1.0.
+        # Skip configurations with equal weights, except when a weight is ~1.0.
         w = model_weights[model_weights.keys()[0]]
-        is_one = abs(w - 1.0) <= 0.001
-        if not is_one and has_equal_values(model_weights):
+        if has_equal_values(model_weights) and w < 0.9:
             continue
 
         compute_majority_predictions(model_weights,
