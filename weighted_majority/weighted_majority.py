@@ -3,17 +3,12 @@ import glob
 import itertools
 import math
 import os
+from pprint import pprint
 import sys
-
-# globals
-WEIGHTS = {
-    'resnet': 1.0,
-    'inception': 1.0
-}
 
 
 def get_network_name(filename):
-    # XXX: Network name assumed to be encoded as net_file.txt
+    # XXX: Network name assumed to be encoded as net_<file_suffix>.txt
     basename = os.path.splitext(os.path.basename(filename))[0]
     return basename.split('_')[0]
 
@@ -68,7 +63,10 @@ def process_class_accuracies_file(filename, class_accuracies):
     return class_accuracies
 
 
-def process_predictions_file(predictions_filename, votes, class_scores=None,
+def process_predictions_file(model_weights,
+                             predictions_filename,
+                             votes,
+                             class_scores=None,
                              use_top1_class_scores=None,
                              use_top5_class_scores=None,
                              class_accuracies=None,
@@ -76,7 +74,7 @@ def process_predictions_file(predictions_filename, votes, class_scores=None,
                              use_top5_class_accuracies=None):
     net = get_network_name(predictions_filename)
 
-    if net not in WEIGHTS:
+    if net not in model_weights:
         sys.exit('Exiting: no weight configured for "%s" network.' % net)
 
     with open(predictions_filename) as f:
@@ -120,15 +118,46 @@ def process_predictions_file(predictions_filename, votes, class_scores=None,
                         class_accuracy *= class_accuracies[
                             net][prediction]['top5']
 
-                votes[image][prediction] += round(float(WEIGHTS[net] *
-                                                        class_score * class_accuracy * decay_factor), 4)
+                votes[image][prediction] += round(float(model_weights[net] *
+                                                        class_score *
+                                                        class_accuracy *
+                                                        decay_factor), 4)
 
     return votes
 
 
-def compute_majority_predictions(input_dir, labels_input_filename,
-                                 use_top1_class_scores, use_top5_class_scores, use_top1_class_accuracies,
-                                 use_top5_class_accuracies):
+def grid_search(**kwargs):
+    # XXX: Need to be kept in sync with the input files available.
+    model_weights = {
+        'resnet': 1.0,
+        'inception': 0.8
+    }
+
+    models = ['resnet', 'inception']
+    weights = [0.0, 0.25, 0.5, 1.0]
+
+    products = []
+    for m in models:
+        products.append(list(itertools.product([m], weights)))
+
+    for i in itertools.product(*products):
+        model_weights = dict(i)
+        compute_majority_predictions(model_weights,
+                                     should_print_predictions=False,
+                                     **kwargs)
+
+
+def compute_majority_predictions(model_weights,
+                                 input_dir,
+                                 labels_input_filename,
+                                 use_top1_class_scores,
+                                 use_top5_class_scores,
+                                 use_top1_class_accuracies,
+                                 use_top5_class_accuracies,
+                                 should_print_predictions):
+    config = dict(locals().items())
+    pprint(config)
+
     correct_answers = {}
     should_compute_acc = False
     if labels_input_filename is not None:
@@ -160,7 +189,9 @@ def compute_majority_predictions(input_dir, labels_input_filename,
     # XXX: Filename actually matters, yuck >.<
     votes = {}
     for predictions_filename in glob.glob(input_dir + '/*_predictions.txt'):
-        votes = process_predictions_file(predictions_filename, votes,
+        votes = process_predictions_file(model_weights,
+                                         predictions_filename,
+                                         votes,
                                          class_scores,
                                          use_top1_class_scores,
                                          use_top5_class_scores,
@@ -188,11 +219,14 @@ def compute_majority_predictions(input_dir, labels_input_filename,
             if correct_answers[image] in top_preds[:5]:
                 top_5_acc += 1
 
-        print '%s %s' % (image, ' '.join(map(str, top_preds)))
+        if should_print_predictions:
+            print '%s %s' % (image, ' '.join(map(str, top_preds)))
 
     if should_compute_acc:
         print 'top-1 acc: %s' % (float(top_1_acc) / len(votes))
         print 'top-5 acc: %s' % (float(top_5_acc) / len(votes))
+
+    print 'done.\n'
 
 
 if __name__ == "__main__":
@@ -222,4 +256,5 @@ if __name__ == "__main__":
     parser.set_defaults(use_top5_class_accuracies=False)
 
     args = parser.parse_args()
-    compute_majority_predictions(**vars(args))
+
+    grid_search(**vars(args))
