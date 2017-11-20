@@ -128,13 +128,8 @@ def process_predictions_file(model_weights,
 
 def grid_search(**kwargs):
     # XXX: Need to be kept in sync with the input files available.
-    model_weights = {
-        'resnet': 1.0,
-        'inception': 0.8
-    }
-
     models = ['resnet', 'inception']
-    weights = [0.0, 0.25, 0.5, 1.0]
+    weights = [0.0, 0.25, 0.5, 0.75, 1.0]
 
     products = []
     for m in models:
