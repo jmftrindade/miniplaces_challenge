@@ -76,7 +76,8 @@ def process_predictions_file(model_weights,
     net = get_network_name(predictions_filename)
 
     if net not in model_weights:
-        sys.exit('Exiting: no weight configured for "%s" network.' % net)
+        print 'Warning: no majority weight specified for "%s"; returning' % net
+        return votes
 
     with open(predictions_filename) as f:
         for line in f:
@@ -89,7 +90,7 @@ def process_predictions_file(model_weights,
                 sys.exit(-1)
 
             image = tokens[0]
-            num_preds = len(tokens) - 1  # first entry is the test image
+            num_preds = len(tokens) - 1  # first entry is the image name
             for i in xrange(1, num_preds + 1):
                 prediction = int(tokens[i])
 
@@ -102,7 +103,7 @@ def process_predictions_file(model_weights,
                 decay_factor = 1.0
                 # Only first 10 predictions count.
                 if decay_type == 'constant':
-                    decay_factor = 1.0 if i <= 10 else 0.0
+                    decay_factor = 1.0 if i <= 5 else 0.0
                 # Linear decay for prediction ranks.
                 elif decay_type == 'linear':
                     decay_factor = num_preds - i
@@ -111,14 +112,14 @@ def process_predictions_file(model_weights,
                     decay_factor = math.exp(float(-i) / float(5))
 
                 class_score = 1.0
-                if class_scores is not None and len(class_scores) > 0:
+                if class_scores and net in class_scores:
                     if use_top1_class_scores:
                         class_score *= class_scores[net][prediction]['top1']
                     if use_top5_class_scores:
                         class_score *= class_scores[net][prediction]['top5']
 
                 class_accuracy = 1.0
-                if class_accuracies is not None and len(class_accuracies) > 0:
+                if class_accuracies and net in class_accuracies:
                     if use_top1_class_accuracies:
                         class_accuracy *= class_accuracies[
                             net][prediction]['top1']
@@ -135,7 +136,7 @@ def process_predictions_file(model_weights,
 
 
 def main(**kwargs):
-    # XXX: Need to be kept in sync with the input files available.
+    #    models = ['alexnet']
     models = ['resnet', 'inception']
     weights = [1.0]
     output_predictions = False
@@ -147,6 +148,7 @@ def main(**kwargs):
     if kwargs.get('grid_search'):
         weights = [0.0, 0.7, 1.0]
 
+    # Remove grid_search from kwargs before passing them along.
     kw = {k: v for k, v in kwargs.items() if k is not 'grid_search'}
     grid_search(models, weights, output_predictions, **kw)
 
@@ -195,28 +197,36 @@ def compute_majority_predictions(model_weights,
                 line = line.rstrip().split()
                 correct_answers[line[0]] = int(line[1])
 
+    # Only retrieve stuff for models that we care about.
+    models_prefix = (input_dir + '/[' +
+                     '|'.join([m for m in model_weights.iterkeys()]) + ']' +
+                     '*')
+
     # Retrieve class scores if available.
     class_scores = {}
     if use_top1_class_scores or use_top5_class_scores:
-        for scores_filename in glob.glob(input_dir + '/*_scores.txt'):
+        pattern = models_prefix + '_scores.txt'
+        for scores_filename in glob.glob(pattern):
             class_scores = process_scores_file(scores_filename, class_scores)
         if len(class_scores) == 0:
-            print 'Exiting: no *_scores.txt files found.'
+            print 'Exiting: no %s files found.' % pattern
             sys.exit(-1)
 
     # Retrieve class accuracies if available.
     class_accuracies = {}
     if use_top1_class_accuracies or use_top5_class_accuracies:
-        for accuracies_filename in glob.glob(input_dir + '/*_class_accuracies.txt'):
+        pattern = models_prefix + '_class_accuracies.txt'
+        for accuracies_filename in glob.glob(pattern):
             class_accuracies = process_class_accuracies_file(accuracies_filename,
                                                              class_accuracies)
         if len(class_accuracies) == 0:
-            print 'Exiting: no *_class_accuracies.txt files found.'
+            print 'Exiting: no %s files found.' % pattern
             sys.exit(-1)
 
     # XXX: Filename actually matters, yuck >.<
     votes = {}
-    for predictions_filename in glob.glob(input_dir + '/*_predictions.txt'):
+    pattern = models_prefix + '_predictions.txt'
+    for predictions_filename in glob.glob(pattern):
         votes = process_predictions_file(model_weights,
                                          predictions_filename,
                                          votes,
@@ -227,6 +237,10 @@ def compute_majority_predictions(model_weights,
                                          use_top1_class_accuracies,
                                          use_top5_class_accuracies,
                                          decay_type)
+
+    if len(votes) == 0:
+        print 'Exiting: no %s files found.' % pattern
+        sys.exit(-1)
 
     top_1_acc = 0
     top_5_acc = 0
