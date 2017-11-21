@@ -101,9 +101,12 @@ def process_predictions_file(model_weights,
 
                 # Default decay is exponential.
                 decay_factor = 1.0
-                # Only first 10 predictions count.
-                if decay_type == 'constant':
+                # Only first 5 predictions count.
+                if decay_type == 'constant_first_5':
                     decay_factor = 1.0 if i <= 5 else 0.0
+                # Only first 10 predictions count.
+                if decay_type == 'constant_first_10':
+                    decay_factor = 1.0 if i <= 10 else 0.0
                 # Linear decay for prediction ranks.
                 elif decay_type == 'linear':
                     decay_factor = num_preds - i
@@ -136,8 +139,8 @@ def process_predictions_file(model_weights,
 
 
 def main(**kwargs):
-    #    models = ['alexnet']
-    models = ['resnet', 'inception']
+    models = ['alexnet']
+#    models = ['resnet', 'inception']
     weights = [1.0]
     output_predictions = False
 
@@ -298,7 +301,8 @@ if __name__ == "__main__":
                         action='store_true')
     parser.set_defaults(use_top5_class_accuracies=False)
     parser.add_argument('--decay-type',
-                        choices=['constant', 'linear', 'exponential'],
+                        choices=['constant_first_5', 'constant_first_10',
+                                 'linear', 'exponential'],
                         dest='decay_type',
                         action='store',
                         help='Type of decay function for prediction ranks.')
