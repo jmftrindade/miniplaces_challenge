@@ -15,12 +15,12 @@ data_mean = np.asarray([0.45834960097,0.44674252445,0.41352266842])
 learning_rate = 0.001
 dropout = 0.5 # Dropout, probability to keep units
 training_iters = 50000  # 50
-step_display = 50
-step_save = 1000  # 25
+step_display = 100
+step_save = 500  # 25
 model_path = '.'
 model = model_path + '/alexnet_bn'
-#start_from = model_path
-start_from = ''  # use this if you want to train it again from scratch
+start_from = model_path
+#start_from = ''  # use this if you want to train it again from scratch
 
 def batch_norm_layer(x, train_phase, scope_bn):
     return batch_norm(x, decay=0.9, center=True, scale=True,
@@ -126,7 +126,7 @@ opt_data_test = {
     'load_size': load_size,
     'fine_size': fine_size,
     'data_mean': data_mean,
-    'randomize': True
+    'randomize': False
     }
 loader_test = DataLoaderDisk(**opt_data_test)
 
@@ -221,49 +221,47 @@ with tf.Session() as sess:
     print('Training Finished!')
 
     # Evaluate on the whole validation set
-    print('Evaluation on the whole validation set...')
-    num_batch = loader_val.size()//batch_size
-    acc1_total = 0.
-    acc5_total = 0.
-    loader_val.reset()
-    for i in range(num_batch):
-        images_batch, labels_batch = loader_val.next_batch(batch_size)    
-        acc1, acc5 = sess.run([accuracy1, accuracy5], feed_dict={x: images_batch, y: labels_batch, keep_dropout: 1., train_phase: False})
-        acc1_total += acc1
-        acc5_total += acc5
-        print("Validation Accuracy Top1 = " + \
-              "{:.4f}".format(acc1) + ", Top5 = " + \
-              "{:.4f}".format(acc5))
-
-    acc1_total /= num_batch
-    acc5_total /= num_batch
-    print('Evaluation Finished! Accuracy Top1 = ' + "{:.4f}".format(acc1_total) + ", Top5 = " + "{:.4f}".format(acc5_total))
+#    print('Evaluation on the whole validation set...')
+#    num_batch = loader_val.size()//batch_size
+#    acc1_total = 0.
+#    acc5_total = 0.
+#    loader_val.reset()
+#    for i in range(num_batch):
+#        images_batch, labels_batch = loader_val.next_batch(batch_size)    
+#        acc1, acc5 = sess.run([accuracy1, accuracy5], feed_dict={x: images_batch, y: labels_batch, keep_dropout: 1., train_phase: False})
+#        acc1_total += acc1
+#        acc5_total += acc5
+#        print("Validation Accuracy Top1 = " + \
+#              "{:.4f}".format(acc1) + ", Top5 = " + \
+#              "{:.4f}".format(acc5))
+#
+#    acc1_total /= num_batch
+#    acc5_total /= num_batch
+#    print('Evaluation Finished! Accuracy Top1 = ' + "{:.4f}".format(acc1_total) + ", Top5 = " + "{:.4f}".format(acc5_total))
 
     # jfon: run inference, and save top 5 predictions per image
     print('Starting inference...')
+    num_batch = loader_test.size()//batch_size
+#    num_batch = loader_val.size()//batch_size
+    loader_test.reset()
+#    loader_val.reset()
+    topk = tf.nn.top_k(logits, k=100)
     with open('results.txt', 'w') as f:
-        num_batch = loader_test.size()//batch_size
-        loader_test.reset()
-
         num_img = 1
         for i in range(num_batch):
             images_batch, _ = loader_test.next_batch(batch_size)
-            top_5 = tf.nn.top_k(logits, k=5)
-            results = sess.run([top_5], feed_dict={x: images_batch, keep_dropout: 1., train_phase: False})
+#            images_batch, _ = loader_val.next_batch(batch_size)
+            results = sess.run(topk, feed_dict={x: images_batch, keep_dropout: 1., train_phase: False})
 
-            for img_idx in range(len(results[0][1])):
+            for img_idx in range(len(results[1])):
                 img_suffix = str(num_img)
                 img_suffix = img_suffix.zfill(8)
                 img_filename = 'test/' + img_suffix + '.jpg'
+#                img_filename = 'val/' + img_suffix + '.jpg'
                 num_img += 1
 
-                # 5 preds per image
-                preds = ''
-                for pred in results[0][1][img_idx]:
-                    preds += str(pred) + ' '
-                preds = preds[:-1]
-
-                line = img_filename + ' ' + preds
+                preds = results[1][img_idx]
+                line = img_filename + ' ' + ' '.join([str(pred) for pred in preds])
                 f.write(line + '\n')
 
     print("Done.")
