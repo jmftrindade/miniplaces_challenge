@@ -1,0 +1,15 @@
+{'decay_type': 'constant_first_5',
+ 'input_dir': 'validation/',
+ 'labels_input_filename':
+ 	'../data/val.txt',
+ 'model_weights': {
+ 	  'alexnet': 1.0,
+    'inception': 1.0,
+    'resnet': 1.0},
+ 'output_predictions': False,
+ 'use_top1_class_accuracies': False,
+ 'use_top1_class_scores': False,
+ 'use_top5_class_accuracies': False,
+ 'use_top5_class_scores': False}
+top-1 acc: 0.5323
+top-5 acc: 0.8203

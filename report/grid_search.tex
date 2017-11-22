@@ -1,0 +1,85 @@
+\begin{table*}[!htb]
+\small
+\centering
+ \begin{tabular}{|p{7cm}|p{3cm}|p{1.5cm}|p{1.5cm}|}
+ \hline
+Model weights & Decay type & Top-1 Acc & Top-5 Acc\\\hline\hline
+alexnet: 1.0,
+inception: 1.0
+resnet: 1.0 & exponential & 0.5323 & 0.8203 \\\hline
+alexnet: 0.7,
+inception: 1.0,
+resnet: 1.0 & exponential & 0.5318 & 0.8177 \\\hline
+alexnet: 0.7,
+inception: 0.7,
+resnet: 1.0 & exponential & 0.531 & 0.8177 \\\hline
+alexnet: 0.7,
+inception: 1.0,
+resnet: 0.7 & exponential & 0.5268 & 0.8169 \\\hline
+alexnet: 0.7,
+inception: 1.0,
+resnet: 1.0 & linear & 0.5202 & 0.8165 \\\hline
+alexnet: 1.0,
+inception: 1.0,
+resnet: 0.7 & exponential & 0.5282 & 0.8151 \\\hline
+alexnet: 0.7,
+inception: 1.0,
+resnet: 0.7 & linear & 0.5191 & 0.8142 \\\hline
+alexnet: 1.0,
+inception: 0.7,
+resnet: 1.0 & exponential & 0.5199 & 0.8141 \\\hline
+alexnet: 1.0,
+inception: 1.0,
+resnet: 1.0 & linear & 0.5218 & 0.8140 \\\hline
+alexnet: 1.0,
+inception: 0.7,
+resnet: 0.7 & linear & 0.5279 & 0.8136 \\\hline
+\end{tabular}
+\caption{Top 10 bagging ensemble configurations, as ranked by top-5 accuracy over validation set.}
+\label{tab:top10_configs}
+\end{table*}
+
+\subsection{Grid Search Hyperparameters}
+
+We use grid search to explore the space of hyperparameter values that yield the best top-5 accuracy over validation set. Hyperparameters on the search space are:\\
+
+\noindent {\bf Model weights.} We define a 'model weight' as the weight for each model in the weighted majority bagging ensemble prediction. This value ranges from 0.0 to 1.0 for each model.  After initially experimenting with varying model contributions in increments of 0.25, we found no gains in validation accuracy for any configuration where weight was less than 0.7.  Therefore, for our final grid search we use either 0.0, 0.7 or 1.0 as the weight for each model in the bagging ensemble.\\
+
+\noindent {\bf Decay function.} We define 'decay function' as the function over the prediction ranks of each model. We consider three different decay functions:
+
+$$\text{Constant: } D(r,k) \begin{cases}
+               1.0 \text{ if } r < k\\
+               0.0 \text{ otherwise}
+            \end{cases}$$
+
+$$\text{Linear: } D(r) = |\text{prediction\_classes}| - r$$
+
+$$\text{Exponential: } D(r) = e^{\frac{-r}{5}}$$
+ 
+where $r$ is the prediction rank and in the case of ``Constant'', $k$ is a rank cutoff, e.g., $k = 5$ if only the first 5 predictions of that model are considered for the weighted majority vote.  We use two variations of constant decay function, one where $k = 5$, and another where $k = 10$. In our experiments, we find that the best results are obtained when the decay function is either exponential, or constant with $k = 5$.\\
+
+\noindent {\bf Class-wise confidence.} As described in Section~\ref{ss:ensembling}, we also consider an heuristic that takes into account the class-wise confidence as calculated over the training set.  This adds a total of four permutations per configuration, as both top-1 and top-5 class-wise confidence is considered.\\
+
+\noindent {\bf Class-wise accuracy.} The final heuristic we include as part of the grid search space is class-wise accuracy, defined in Section~\ref{ss:ensembling}.  Similar to class-wise confidence, this hyperparameter too adds four permutations per configuration to the total search space we explore with grid search.\\
+
+An example configuration for the grid search space, together with its top-1 and top-5 accuracy over validation set is given in Figure ~\ref{fig:gs_config}.  In Table~\ref{tab:top10_configs} we display the 10 best configurations found by our grid search over the hyperparameters described above. Other configurations and their accuracies over validation set are included in the accompanying source code, under \texttt{weighted\_majority/grid\_search\_results.txt}.
+
+\subsection{Ensemble Weight}
+
+The ensemble value of a single class prediction for an image is given by the formula:
+
+$$E(p,r) = \sum_{n=1}^{|models|} w_n * c_p * a_p * d(r)$$
+
+where $p$ is the prediction class, $r$ is the rank of that class as given by CNN model $n$, $w_n$ is the weight (for majority vote) assigned to that model, $c_p$ is the class-wise confidence score for prediction class $p$, $a_p$ is the class-wise accuracy for prediction class $p$, and $d$ is the contribution of rank $r$ after decay function is applied.
+
+For example, given the grid search configuration in Figure~\ref{fig:gs_config}, $c_p$ would be set to 1.0 since class-wise confidence scores are disabled, and $a_p$ would also be set to 1.0 for a similar reason. Further, $d(r)$ would be the result of applying the ``Constant'' decay function with $k = 5$, yielding 0.0 if $r > 5$, and $w_n$ would be 1.0 regardless of model (AlexNet, ResNet, or Inception).  So in this case, the final ensemble value for class $p$ is equal to the weighted majority of the three different CNNs, with equal weight assigned to each.
+
+\begin{figure}[!ht]
+\verbatiminput{grid_search_config.txt}
+\caption{Example configuration explored by grid search, together with resulting top-1 and top-5 accuracy over validation set.}
+\label{fig:gs_config}
+\end{figure}
+
+\subsection{Best Performing CNN Ensembles}
+
+Table~\ref{tab:top10_configs} shows the top 10 configurations, as ranked by top-5 accuracy over validation set.  Our grid search also explores configurations where class accuracies and class confidence scores for both top-1 and top-5 -- as defined in Section~\ref{ss:ensembling} -- are considered.  We find, however, that the configurations with highest top-5 accuracy over validation set are obtained when neither of these heuristics are considered.  In addition, our experimental results indicate highest top-5 accuracy over validation set is obtained when all models have similar weights, i.e., the simple weighted majority case.

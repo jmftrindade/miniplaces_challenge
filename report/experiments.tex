@@ -1,0 +1,11 @@
+\section{Experiments}
+\label{s:experiments}
+
+The AlexNet models were trained on a desktop with an 8 core Intel(R) Core(TM) i7-6900K CPU @ 3.20GHz CPU and a Nvidia Titan-X GPU with 12GB of onboard memory. 
+
+The Inception and Resnet models were trained on a server with two 22-core Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz CPUs and a Tesla P100 GPU with 16GB of onboard memory.
+
+We trained both our Inception-V3 and ResNet-V2-101 models using the Tensorflow~\cite{tensorflow} Slim framework. We trained our AlexNet models by modifying the example code. All models were trained with an Adam Optimizer~\cite{adam}. For Inception and ResNet our best models trained with $0.8$ keep probability for dropout, an initial learning rate of $0.1$, and optimizer parameters $\beta_1 = 0.9$ and $\beta_2 =0.999$. The learning rate was decayed every 25 batches. We used a batch size of 128 for ImageNet and 60 for ResNet. Otherwise the initialization for Inception V3 is identical to the Inception~\cite{inception} Paper. Our best AlexNet model was trained with a  $0.5$ keep probability for dropout and an initial learning rate of $0.001$ and the Tensorflow default parameters for the Adam optimizer.
+
+%% subsection: Grid Search
+\input{grid_search}

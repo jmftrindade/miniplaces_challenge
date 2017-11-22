@@ -1,0 +1,10 @@
+\subsection{Ensembling Techniques}
+
+Ensemble learning techniques combine multiple trained baseline models to make the final set of predictions.  In traditional machine learning, ensemble methods are mainly divided in three categories: bagging, boosting, and stacking \cite{ensembleML2012}.  With bagging, the final prediction is obtained as a weighted majority over predictions from each baseline model.  In boosting, each model specializes on certain subsets of examples.  Finally, stacking ensembles use the prediction of each baseline model to train a new model which outputs a combined prediction.
+
+\subsection{Bagging Ensemble Of CNNs}
+\label{ss:ensembling}
+
+In our solution we opted for using bagging as the ensemble method, and grid search to explore the search space of model weights and other hyperparameter values. We considered ensembling all the models by removing their respective final fully connected layers and fine-tuning all networks with a shared fully connected layer (or otherwise a ``stacking'' ensemble, as described in Section~\ref{ss:ensembling}). However, limitations on GPU memory made this approach difficult. So we decided on a simpler bagging approach.
+
+One technique we consider in our grid search takes into account the class-wise accuracy or class-wise confidence calculated on the training set for each model. The class-wise accuracy is given by $\frac{\textbf{true positives}}{\textbf{ \# class examples}}$. the class-wise confidence is given by $\frac{\textbf{true positives}}{\textbf{ true positives + false positives}}$. For each model, on each class we calculated it's accuracy and confidence for its top-1 and top-5 guesses. We the weigh the output of each network based on its accuracy or confidence in guessing examples on the validation set.
