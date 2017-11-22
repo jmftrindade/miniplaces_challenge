@@ -1,4 +1,4 @@
 ## File format:
 ```
-<image_name> <top5_alexnet> <top5_alexnet_0.5_dropout> <top5 resnet> <top5 inception>
+<image_name> <class_label> <top5_preds_alexnet> <top5_preds_alexnet_0.5_dropout> <top5_preds_resnet> <top5_preds_inception>
 ```
