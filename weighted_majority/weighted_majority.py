@@ -140,7 +140,7 @@ def process_predictions_file(model_weights,
 
 def main(**kwargs):
 #    models = ['alexnet']
-    models = ['alexnet', 'resnet', 'inception']
+    models = ['alexnet', 'alexnet05', 'resnet', 'inception']
     weights = [1.0]
     output_predictions = False
 
